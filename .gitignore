@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.data
+/data
+
+.llama_patent_similarity
+/llama_patent_similarity
