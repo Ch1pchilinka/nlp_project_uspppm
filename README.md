@@ -10,7 +10,6 @@ data
 Внести в него строку  
 HUGGINGFACE_TOKEN=<ваш токен>  
 
-Убрать из файла pyproject.toml строчки после 25  
 выполнить в bash uv sync
 
 Запуск обучения uv run train.py  
