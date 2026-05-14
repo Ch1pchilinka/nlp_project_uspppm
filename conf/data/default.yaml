@@ -1,0 +1,2 @@
+train_csv: ./data/train.csv
+cpc_csv: ./data/archive/titles.csv

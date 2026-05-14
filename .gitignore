@@ -222,3 +222,13 @@ __marimo__/
 
 .llama_patent_similarity
 /llama_patent_similarity
+
+/artifacts
+
+./artifacts
+
+mlflow.db
+
+outputs/
+
+./outputs

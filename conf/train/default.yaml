@@ -1,0 +1,31 @@
+seed: 42
+
+output_dir: ./outputs
+
+epochs: 3
+
+gradient_clip_val: 1.0
+accumulate_grad_batches: 8
+num_sanity_val_steps: 0
+
+precision: bf16-mixed
+
+log_every_n_steps: 10
+
+train_batch_size: 1
+valid_batch_size: 1
+
+num_workers: 1
+
+max_len: 384
+
+lr: 2e-4
+weight_decay: 0.01
+warmup_ratio: 0.1
+
+use_bf16: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05

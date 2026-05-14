@@ -1,0 +1,6 @@
+type: mlflow
+
+mlflow:
+  tracking_uri: http://localhost:8080
+  experiment_name: uspppm
+  run_name: null

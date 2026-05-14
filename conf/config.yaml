@@ -1,0 +1,8 @@
+defaults:
+  - model: default
+  - data: default
+  - train: default
+  - inference: default
+  - secret: default
+  - logger: default
+  - _self_
