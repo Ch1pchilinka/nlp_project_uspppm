@@ -1,0 +1,7 @@
+[core]
+    remote = r2-storage
+['remote "r2-storage"']
+    url = s3://uspppm/data
+    endpointurl = https://8c75d8e5f01b5fb0a7b0ec8878f6cda9.r2.cloudflarestorage.com
+    access_key_id = 7d9c57c8080d49a2bf34fa1173d1db22
+    secret_access_key = c9d0b63d1e9fd59ab06c235ae70a7ebb70377647f79ee176215d1f798a4abc0f
