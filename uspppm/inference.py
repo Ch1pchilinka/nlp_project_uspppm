@@ -14,6 +14,7 @@ from model import PatentSimilarityModule
 from omegaconf import DictConfig
 from utils import clean_mem
 from dotenv import load_dotenv
+from tqdm import tqdm
 
 cpc_df = pd.read_csv("./data/archive/titles.csv")
 test_df = pd.read_csv("./data/test.csv")
@@ -30,8 +31,6 @@ def predict_similarity(
     target,
     max_len,
 ):
-
-    model.eval()
 
     row = {
         "context_text": enrich_context(
@@ -70,9 +69,12 @@ def infer(cfg: DictConfig):
 
     model = PatentSimilarityModule.load_from_checkpoint(
         cfg.inference.checkpoint,
-        map_location=device,
+        map_location="cpu",
         weights_only=False,
+        strict=False
     )
+
+    model = model.to(device)
 
     model.eval()
 
@@ -81,18 +83,16 @@ def infer(cfg: DictConfig):
         token=os.getenv(cfg.secret.token)
     )
 
-    results = []
-
     scores = []
 
-    for _, row in test_df.iterrows():
+    for _, row in tqdm(test_df.iterrows(), total=len(test_df), desc="Predicting"):
         score = predict_similarity(
             model=model,
             tokenizer=tokenizer,
             context=row["context"],
             anchor=row["anchor"],
             target=row["target"],
-            max_len=cfg.train.max_len,          # set your max_length
+            max_len=cfg.train.max_len,
         )
         scores.append(score)
 
